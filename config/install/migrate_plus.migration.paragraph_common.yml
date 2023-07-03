@@ -1,12 +1,12 @@
-uuid: 6a0fe1d4-f93d-438d-af5f-c55eecd480a9
-id: block_common
-label: Blocchi
+uuid: 1e711b8c-8ecc-46e3-a758-e706cdb78395
+id: paragraph_common
+label: Paragrafi
 migration_group: comune_block
 migration_tags:
   - json
   - comune
-  - block
-  - block_common
+  - paragraph
+  - paragraph_common
 
 source:
   plugin: url
@@ -30,7 +30,7 @@ source:
   # track_changes: false
 
   urls:
-    - 'https://municipes.github.io/origo/block/content.json'
+    - 'https://municipes.github.io/origo/block/paragraphs.json'
 
   # An xpath-like selector corresponding to the items to be imported.
   item_selector: data
@@ -43,17 +43,23 @@ source:
       label: 'UUID blocco'
       selector: uuid
     - name: type
-      label: 'Tipo di blocco'
+      label: 'Tipo di paragrafo'
       selector: type
-    - name: info
-      label: 'Info sul blocco'
-      selector: attributes/info
-    - name: body
-      label: 'Il testo del blocco'
-      selector: attributes/body
-    - name: paragraph
-      label: 'Il paragrafo'
-      selector: attributes/paragraph
+    - name: title
+      label: 'Campo titolo'
+      selector: attributes/title
+    - name: args
+      label: 'TID argomenti'
+      selector: attributes/args
+    - name: parent_type
+      label: 'Tipo contenuto padre'
+      selector: attributes/parent_type
+    - name: parent_field_name
+      label: 'Nome campo padre'
+      selector: attributes/parent_field_name
+    - name: parent_id
+      label: 'ID entità padre'
+      selector: attributes/parent_id
 
   ids:
     id:
@@ -62,17 +68,15 @@ source:
 process:
   id: id
   uuid: uuid
-  type: type
-  info: info
-  'body/format':
-    plugin: default_value
-    default_value: bootstrap_italia_2
-  'body/value': body
-  'field_paragrafi/target_id': paragraph
+  field_title: title
+  field_argomento: args
+  parent_type: parent_type
+  parent_field_name: parent_field_name
+  parent_id: parent_id
+
 destination:
-  plugin: entity:block_content
-  bundle: type
-  no_stub: true
+  plugin: entity_reference_revisions:paragraph
+  default_bundle: argomenti_in_evidenza
 
 migration_dependencies: {  }
 
