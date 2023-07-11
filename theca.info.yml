@@ -11,3 +11,4 @@ dependencies:
   - drupal:migrate_tools
   - taxonomy_menu:taxonomy_menu
   - menu_block:menu_block
+  - scaenographia:bi_contacts

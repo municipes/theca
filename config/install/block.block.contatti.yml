@@ -9,7 +9,7 @@ dependencies:
     - scaenographia
 id: contatti
 theme: scaenographia
-region: contacts
+region: disabled_blocks
 weight: 0
 provider: null
 plugin: 'block_content:b14224ae-2e42-4977-8ef2-5585cd62061e'
