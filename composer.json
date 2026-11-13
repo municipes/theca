@@ -23,8 +23,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "drupal/core-recommended": "^10",
-        "municipes/pagina": "^1",
+        "drupal/core": "^11",
+        "municipes/pagina": "^2",
         "drupal/migrate_plus": "^6",
         "drupal/migrate_tools": "^6"
     }
